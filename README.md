@@ -26,4 +26,4 @@ You also know the distances between the beacons `d01`, `d02` and `d12`.
 The function of this crate computes for you your position _in_ the coordinate
 system where beacon 0 is at `(0,0)` and beacon 1 is on the x axis.
 
-See also [https://github.com/Garbaz/triangulation_from_dist_diff](https://github.com/Garbaz/triangulation_from_dist_diff/).
+See also [triangulation_from_dist_diff](https://github.com/Garbaz/triangulation_from_dist_diff/).
