@@ -7,5 +7,6 @@ description = "Distance Difference Triangulation"
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
 
 [dependencies]
-glam = { version = "0.27.0", features = ["rand"] }
+
+[dev-dependencies]
 rand = "0.8.5"
