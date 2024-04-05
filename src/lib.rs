@@ -26,6 +26,49 @@ pub struct BeaconDistances<F> {
 
 /// Triangulate the position of an unknown point `(x,y)` from the distance
 /// differences to three beacons and the distances between the three beacons.
+///
+/// ## Example
+///
+/// ```
+/// use ddtri::{DistanceDifferences,
+///            BeaconDistances,
+///            distance_difference_triangulation};
+///
+/// /// Euclidian distance between two points.
+/// fn distance(p: (f64, f64), q: (f64, f64)) -> f64 {
+///     let d0 = p.0 - q.0;
+///     let d1 = p.1 - q.1;
+///     (d0 * d0 + d1 * d1).sqrt()
+/// }
+///
+/// // Beacon positions
+/// let beacon0 = (0., 0.);
+/// let beacon1 = (7., 0.);
+/// let beacon2 = (5., 6.);
+///
+/// // Our unknown position
+/// let position = (4., 2.);
+///
+/// // The unknown distances to the beacons
+/// let dist0 = distance(beacon0, position);
+/// let dist1 = distance(beacon1, position);
+/// let dist2 = distance(beacon2, position);
+///
+/// let position_estimate = distance_difference_triangulation(
+///     DistanceDifferences {
+///         ddto0to1: dist0 - dist1,
+///         ddto0to2: dist0 - dist2,
+///     },
+///     BeaconDistances {
+///         d0to1: distance(beacon0, beacon1),
+///         d0to2: distance(beacon0, beacon2),
+///         d1to2: distance(beacon1, beacon2),
+///     },
+/// );
+///
+/// // Using `< 2. * f64::EPSILON` here quite arbitrarily.
+/// assert!(distance(position, position_estimate) < 2. * f64::EPSILON);
+/// ```
 pub fn distance_difference_triangulation<F>(
     distance_differences: DistanceDifferences<F>,
     beacon_distances: BeaconDistances<F>,
@@ -59,6 +102,9 @@ where
 
     bigboy(x1, x2, y2, a, b)
 }
+
+#[test]
+fn test_distance_difference_triangulation() {}
 
 /// See https://github.com/Garbaz/triangulation_from_dist_diff/. Note that the
 /// indices are shifted down by one here for consistency of notation.

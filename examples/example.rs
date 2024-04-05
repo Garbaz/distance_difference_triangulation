@@ -38,16 +38,7 @@ fn main() {
     println!("  x: {}", position_estimate.0);
     println!("  y: {}", position_estimate.1);
 
-    let err = (
-        (position_estimate.0 - position.0).abs(),
-        (position_estimate.1 - position.1).abs(),
-    );
-    let err_total = distance((0., 0.), err);
-
-    println!("Error:");
-    println!("  x:     {}", err.0);
-    println!("  y:     {}", err.1);
-    println!("  total: {}", err_total);
+    println!("Error: {}", distance(position, position_estimate));
 }
 
 /// Euclidian distance between two points.
