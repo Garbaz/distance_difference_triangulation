@@ -1,3 +1,5 @@
+#![doc = include_str!("../README.md")]
+
 use std::ops::{Add, Div, Mul, Neg, Sub};
 
 /// The distance differences.
@@ -56,26 +58,6 @@ where
     let y2 = (bd02 * bd02 - x2 * x2)._sqrt();
 
     bigboy(x1, x2, y2, a, b)
-}
-
-/// A trait for types that implement the the square-root function.
-pub trait Sqrt {
-    /// Returns the square root of a number.
-    ///
-    /// Returns NaN if `self` is a negative number other than `-0.0`.
-    fn _sqrt(self) -> Self;
-}
-
-impl Sqrt for f32 {
-    fn _sqrt(self) -> Self {
-        f32::sqrt(self)
-    }
-}
-
-impl Sqrt for f64 {
-    fn _sqrt(self) -> Self {
-        f64::sqrt(self)
-    }
 }
 
 /// See https://github.com/Garbaz/triangulation_from_dist_diff/. Note that the
@@ -282,4 +264,24 @@ where
         / (F::from(2) * x1 * y2);
 
     (x, y)
+}
+
+/// A trait for types that implement the the square-root function.
+pub trait Sqrt {
+    /// Returns the square root of a number.
+    ///
+    /// Returns NaN if `self` is a negative number other than `-0.0`.
+    fn _sqrt(self) -> Self;
+}
+
+impl Sqrt for f32 {
+    fn _sqrt(self) -> Self {
+        f32::sqrt(self)
+    }
+}
+
+impl Sqrt for f64 {
+    fn _sqrt(self) -> Self {
+        f64::sqrt(self)
+    }
 }
