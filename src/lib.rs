@@ -1,6 +1,7 @@
+#![no_std]
 #![doc = include_str!("../README.md")]
 
-use std::ops::{Add, Div, Mul, Neg, Sub};
+use core::ops::{Add, Div, Mul, Neg, Sub};
 
 /// The distance differences.
 ///
