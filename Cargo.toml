@@ -2,7 +2,13 @@
 name = "ddtri"
 version = "0.1.0"
 edition = "2021"
+authors = ["Garbaz <garbaz@t-online.de>"]
 description = "Distance Difference Triangulation"
+categories = ["algorithms"]
+keywords = ["triangulation", "positioning"]
+homepage = "https://github.com/Garbaz/ddtri"
+repository = "https://github.com/Garbaz/ddtri"
+license = "MIT"
 
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
 
