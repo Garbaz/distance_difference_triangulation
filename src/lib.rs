@@ -1,5 +1,5 @@
-#![no_std]
 #![doc = include_str!("../README.md")]
+#![cfg_attr(not(feature = "std"), no_std)]
 
 use core::ops::{Add, Div, Mul, Neg, Sub};
 
@@ -321,12 +321,14 @@ pub trait Sqrt {
     fn _sqrt(self) -> Self;
 }
 
+#[cfg(feature = "std")]
 impl Sqrt for f32 {
     fn _sqrt(self) -> Self {
         f32::sqrt(self)
     }
 }
 
+#[cfg(feature = "std")]
 impl Sqrt for f64 {
     fn _sqrt(self) -> Self {
         f64::sqrt(self)

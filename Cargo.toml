@@ -1,6 +1,6 @@
 [package]
 name = "ddtri"
-version = "0.1.0"
+version = "0.2.0"
 edition = "2021"
 authors = ["Garbaz <garbaz@t-online.de>"]
 description = "Distance Difference Triangulation"
@@ -10,7 +10,9 @@ homepage = "https://github.com/Garbaz/ddtri"
 repository = "https://github.com/Garbaz/ddtri"
 license = "MIT"
 
-# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+[features]
+default = ["std"]
+std = []
 
 [dependencies]
 
