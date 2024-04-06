@@ -1,4 +1,4 @@
-use ddtri::{distance_difference_triangulation, BeaconDistances, DistanceDifferences};
+use distance_difference_triangulation::{distance_difference_triangulation, BeaconDistances, DistanceDifferences};
 use rand::{
     distributions::{Distribution, Uniform},
     thread_rng,

@@ -31,7 +31,8 @@ pub struct BeaconDistances<F> {
 /// ## Example
 ///
 /// ```
-/// use ddtri::{DistanceDifferences,
+/// use distance_difference_triangulation::{
+///            DistanceDifferences,
 ///            BeaconDistances,
 ///            distance_difference_triangulation};
 ///

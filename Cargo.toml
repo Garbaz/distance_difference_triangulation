@@ -1,13 +1,13 @@
 [package]
-name = "ddtri"
+name = "distance_difference_triangulation"
 version = "0.2.1"
 edition = "2021"
 authors = ["Garbaz <garbaz@t-online.de>"]
-description = "Distance Difference Triangulation"
+description = "Position triangulation from differences of distances"
 categories = ["algorithms"]
 keywords = ["triangulation", "positioning"]
-homepage = "https://github.com/Garbaz/ddtri"
-repository = "https://github.com/Garbaz/ddtri"
+homepage = "https://github.com/Garbaz/distance_difference_triangulation"
+repository = "https://github.com/Garbaz/distance_difference_triangulation"
 license = "MIT"
 
 [features]
