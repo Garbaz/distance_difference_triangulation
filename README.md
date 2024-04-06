@@ -1,6 +1,6 @@
 # Distance Difference Triangulation
 
-‖ [__Docs.rs__](https://docs.rs/ddtri) ‖ [__Lib.rs__](https://lib.rs/crates/ddtri) ‖ [__Crates.io__](https://crates.io/crates/ddtri/) ‖
+‖ [__Docs.rs__](https://docs.rs/distance_difference_triangulation) ‖ [__Lib.rs__](https://lib.rs/crates/distance_difference_triangulation) ‖ [__Crates.io__](https://crates.io/crates/distance_difference_triangulation) ‖
 
 
 This crate consists of exactly one function: [`distance_difference_triangulation`].
