@@ -1,6 +1,6 @@
 [package]
 name = "distance_difference_triangulation"
-version = "0.2.1"
+version = "0.3.0"
 edition = "2021"
 authors = ["Garbaz <garbaz@t-online.de>"]
 description = "Position triangulation from differences of distances"
