@@ -345,6 +345,10 @@ fn test_distance_difference_triangulation_grid() {
     let beacon1 = (7., 0.);
     let beacon2 = (5., 6.);
 
+    // This covers a square grid penned in from the right and top by beacon 1
+    // and 2. Note that we are starting with `i = j = 1` and not `i = j = 0`, as
+    // the function does not work for the position `(0,0)` (division by zero
+    // most likely).
     const STEPS: usize = 13;
     for i in 1..STEPS {
         for j in 1..STEPS {
