@@ -105,9 +105,6 @@ where
     bigboy(x1, x2, y2, a, b)
 }
 
-#[test]
-fn test_distance_difference_triangulation() {}
-
 /// See https://github.com/Garbaz/triangulation_from_dist_diff/. Note that the
 /// indices are shifted down by one here for consistency of notation.
 fn bigboy<F>(x1: F, x2: F, y2: F, a: F, b: F) -> (F, F)
@@ -333,5 +330,53 @@ impl Sqrt for f32 {
 impl Sqrt for f64 {
     fn _sqrt(self) -> Self {
         f64::sqrt(self)
+    }
+}
+
+#[test]
+fn test_distance_difference_triangulation_grid() {
+    fn distance(p: (f64, f64), q: (f64, f64)) -> f64 {
+        let d0 = p.0 - q.0;
+        let d1 = p.1 - q.1;
+        (d0 * d0 + d1 * d1).sqrt()
+    }
+
+    let beacon0 = (0., 0.);
+    let beacon1 = (7., 0.);
+    let beacon2 = (5., 6.);
+
+    const STEPS: usize = 13;
+    for i in 1..STEPS {
+        for j in 1..STEPS {
+            let x = (i as f64) / (STEPS as f64) * beacon1.0;
+            let y = (j as f64) / (STEPS as f64) * beacon2.1;
+
+            {
+                let position = (x, y);
+
+                let dist0 = distance(beacon0, position);
+                let dist1 = distance(beacon1, position);
+                let dist2 = distance(beacon2, position);
+
+                let position_estimate = distance_difference_triangulation(
+                    DistanceDifferences {
+                        ddto0to1: dist0 - dist1,
+                        ddto0to2: dist0 - dist2,
+                    },
+                    BeaconDistances {
+                        d0to1: distance(beacon0, beacon1),
+                        d0to2: distance(beacon0, beacon2),
+                        d1to2: distance(beacon1, beacon2),
+                    },
+                );
+
+                assert!(
+                    distance(position, position_estimate) <= 1e-8,
+                    "Triangulation failed for point ({},{})!",
+                    x,
+                    y
+                );
+            }
+        }
     }
 }
