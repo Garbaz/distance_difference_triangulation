@@ -31,11 +31,11 @@ pub struct BeaconDistances<F> {
 /// ## Example
 ///
 /// ```
-/// use distance_difference_triangulation::{
-///            DistanceDifferences,
-///            BeaconDistances,
-///            distance_difference_triangulation};
-///
+/// # use distance_difference_triangulation::{
+/// #           DistanceDifferences,
+/// #           BeaconDistances,
+/// #           distance_difference_triangulation};
+/// #
 /// /// Euclidian distance between two points.
 /// fn distance(p: (f64, f64), q: (f64, f64)) -> f64 {
 ///     let d0 = p.0 - q.0;
